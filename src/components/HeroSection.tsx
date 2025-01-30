@@ -1,0 +1,55 @@
+import React from "react";
+import { Button } from "@heroui/button";
+
+const HeroSection = () => {
+  return (
+    <section className="relative h-[calc(100vh-4rem)] w-full bg-[url('https://images.pexels.com/photos/3184325/pexels-photo-3184325.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')] bg-cover bg-fixed bg-center bg-no-repeat">
+      {/* Overlay - made much darker with multiple layers */}
+      <div className="absolute inset-0 bg-black/50" />
+
+      {/* Content - centered horizontally */}
+      <div className="relative h-full flex items-center justify-center">
+        <div className="w-full max-w-screen-xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-xl text-center">
+            <h1 className="text-3xl font-extrabold text-white sm:text-5xl">
+              Let us help you{" "}
+              <strong className="block font-extrabold text-primary">
+                Discover Your Potential.
+              </strong>
+            </h1>
+            <p className="mt-4 max-w-lg text-white sm:text-xl/relaxed">
+              StartUs is here to guide you through self-discovery, mentorship,
+              and skill-building to shape your future.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-4 justify-center">
+              {/* Primary Button */}
+              <Button
+                as="a"
+                className="rounded px-12 py-3 text-sm font-medium shadow hover:opacity-90 focus:outline-none focus:ring active:opacity-80"
+                color="primary"
+                href="#get-started"
+                size="lg"
+              >
+                Get Started
+              </Button>
+
+              {/* Secondary Button */}
+              <Button
+                as="a"
+                className="rounded px-12 py-3 text-sm font-medium text-primary shadow hover:opacity-90 focus:outline-none focus:ring active:opacity-80"
+                color="default"
+                href="#learn-more"
+                size="lg"
+                variant="flat"
+              >
+                Learn More
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default HeroSection;
