@@ -18,7 +18,11 @@ import { Logo } from "@/components/icons";
 
 export const Navbar = () => {
   return (
-    <HeroUINavbar isBordered shouldHideOnScroll maxWidth="xl" position="sticky">
+    <HeroUINavbar
+      className="bg-white dark:bg-black/90"
+      maxWidth="xl"
+      position="sticky"
+    >
       <NavbarContent className="basis-1/5 sm:basis-1/3" justify="start">
         <NavbarBrand className="gap-3 max-w-fit">
           <Link
