@@ -1,5 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { Image } from "@heroui/image";
+import { useRef } from "react";
 
 const AboutUs = () => {
   const mainRef = useRef(null);
