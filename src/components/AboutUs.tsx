@@ -34,18 +34,18 @@ const AboutUs = () => {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6,
+        duration: 0.3,
         ease: "easeOut",
       },
     },
   };
 
   return (
-    <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+    <div className="max-w-[85rem] px-4 pb-10 sm:px-6 lg:px-8 lg:pb-12 mx-auto pt-10">
       {/* Grid */}
       <div
         ref={mainRef}
-        className="md:grid md:grid-cols-2 md:items-center md:gap-12 xl:gap-32"
+        className="md:grid md:grid-cols-2 md:items-center md:gap-12 xl:gap-32 ml-8"
       >
         {/* Image Section */}
         <motion.div
@@ -57,7 +57,7 @@ const AboutUs = () => {
             isBlurred
             isZoomed
             alt="About Us"
-            className="rounded-xl w-full object-cover"
+            className="rounded-xl w-[600px] object-cover h-96"
             shadow="lg"
             src="https://images.pexels.com/photos/18772861/pexels-photo-18772861.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
           />
@@ -73,7 +73,7 @@ const AboutUs = () => {
           <div className="space-y-6 sm:space-y-8">
             {/* Title */}
             <div className="space-y-2 md:space-y-4">
-              <h2 className="font-bold text-3xl lg:text-4xl text-gray-800 dark:text-gray-200">
+              <h2 className="font-bold text-4xl lg:text-5xl text-gray-800 dark:text-gray-200">
                 About Start Us
               </h2>
               <p className="text-gray-500 dark:text-gray-400">

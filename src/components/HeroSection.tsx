@@ -44,7 +44,7 @@ const HeroSection = () => {
             >
               <Button
                 as="a"
-                className="rounded px-12 py-3 text-sm font-medium shadow hover:opacity-90 focus:outline-none focus:ring active:opacity-80"
+                className="rounded px-12 py-3 text-sm font-medium shadow hover:opacity-90 focus:outline-none focus:ring active:opacity-80 animate-pulse-scale"
                 color="primary"
                 href="#get-started"
                 size="lg"

@@ -19,7 +19,7 @@ import { Logo } from "@/components/icons";
 export const Navbar = () => {
   return (
     <HeroUINavbar
-      className="bg-white dark:bg-black/90"
+      className="bg-white dark:bg-black/90 fixed top-0 w-full z-50"
       maxWidth="xl"
       position="sticky"
     >
@@ -60,7 +60,13 @@ export const Navbar = () => {
           <ThemeSwitch />
         </NavbarItem>
         <NavbarItem className="hidden md:flex">
-          <Button as={Link} color="primary" href="/login" variant="shadow">
+          <Button
+            as={Link}
+            className="hover:scale-110 transition-all"
+            color="primary"
+            href="/login"
+            variant="shadow"
+          >
             Login
           </Button>
         </NavbarItem>
