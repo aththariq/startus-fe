@@ -15,7 +15,7 @@ function MainStatsCard() {
   const cardRef = useRef(null);
   const isCardInView = useInView(cardRef, {
     once: true,
-    amount: 0.6, // Trigger paling awal
+    amount: 0.3, // Trigger paling awal
   });
 
   return (
@@ -54,7 +54,7 @@ function RightColumnStats() {
   const columnRef = useRef(null);
   const isColumnInView = useInView(columnRef, {
     once: true,
-    amount: 0.3,
+    amount: 0.4,
   });
 
   return (
@@ -77,7 +77,6 @@ function StatsCard({ count, title, description, index, parentInView }: StatsCard
   const cardRef = useRef(null);
   const isCardInView = useInView(cardRef, {
     once: true,
-    amount: 0.5,
   });
 
   const shouldAnimate = parentInView && isCardInView;

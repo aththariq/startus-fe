@@ -1,6 +1,6 @@
 import { Card, CardHeader, CardFooter, Image, Button } from "@heroui/react";
 import { motion, useInView } from "framer-motion";
-import { useRef, useEffect, useState } from "react";
+import { useRef } from "react";
 
 export default function App() {
   const ref = useRef(null);

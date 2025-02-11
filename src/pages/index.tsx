@@ -9,10 +9,13 @@ export default function IndexPage() {
   return (
     <DefaultLayout>
       <HeroSection />
-      <Marquee />
-      <AboutUs />
-      <StatsSection />
-      <FeaturesGrid />
+      <div className="container mx-auto max-w-[1200px]">
+        {" "}
+        <Marquee />
+        <AboutUs />
+        <StatsSection />
+        <FeaturesGrid />
+      </div>
     </DefaultLayout>
   );
 }
