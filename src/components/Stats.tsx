@@ -3,6 +3,12 @@ import { motion, useInView } from "framer-motion";
 import CountUp from "react-countup";
 import { useRef, useState, useEffect } from "react";
 
+// Types for event handlers
+type EventHandlers = {
+  onPointerEnterCapture?: (event: React.PointerEvent) => void;
+  onPointerLeaveCapture?: (event: React.PointerEvent) => void;
+};
+
 interface StatsCardPropsType {
   count: string;
   title: string;
@@ -21,44 +27,29 @@ function MainStatsCard() {
   return (
     <motion.div
       ref={cardRef}
-      initial={{ opacity: 0, y: 20 }}
       animate={isCardInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 20 }}
       transition={{ duration: 0.8 }}
     >
-      <Card
-        className="bg-gray-100/50 py-24 text-center"
-        shadow={false}
-        placeholder={undefined}
-      >
+      <Card className="bg-gray-100/50 py-24 text-center" shadow={false}>
         <Typography
           className="!text-primary !leading-snug text-6xl font-extrabold"
           variant="h1"
-          placeholder={undefined}
         >
           <CountUp duration={2.5} end={393} />
         </Typography>
-        <Typography 
-          className="mt-2 font-bold" 
-          color="blue-gray" 
-          variant="h5"
-          placeholder={undefined}
-        >
+        <Typography className="mt-2 font-bold" color="blue-gray" variant="h5">
           Total Students
         </Typography>
-        <Typography 
-          className="mt-10 font-bold" 
-          color="blue-gray" 
-          variant="h4"
-          placeholder={undefined}
-        >
+        <Typography className="mt-10 font-bold" color="blue-gray" variant="h4">
           SMAN 20 Bandung
         </Typography>
         <Typography
           className="mt-1 text-base mx-auto !text-gray-500 lg:w-8/12"
           variant="lead"
-          placeholder={undefined}
         >
-          Actively participating in shaping their future careers through Start Us
+          Actively participating in shaping their future careers through Start
+          Us
         </Typography>
       </Card>
     </motion.div>
@@ -76,11 +67,11 @@ function RightColumnStats() {
     <div ref={columnRef}>
       <div className="grid lg:grid-cols-2 gap-10 gap-x-20">
         {stats.map((props, key) => (
-          <StatsCard 
-            key={key} 
-            {...props} 
-            index={key} 
-            parentInView={isColumnInView} 
+          <StatsCard
+            key={key}
+            {...props}
+            index={key}
+            parentInView={isColumnInView}
           />
         ))}
       </div>
@@ -88,7 +79,13 @@ function RightColumnStats() {
   );
 }
 
-function StatsCard({ count, title, description, index, parentInView }: StatsCardPropsType & { parentInView: boolean }) {
+function StatsCard({
+  count,
+  title,
+  description,
+  index,
+  parentInView,
+}: StatsCardPropsType & { parentInView: boolean }) {
   const cardRef = useRef(null);
   const isCardInView = useInView(cardRef, {
     once: true,
@@ -102,38 +99,22 @@ function StatsCard({ count, title, description, index, parentInView }: StatsCard
   return (
     <motion.div
       ref={cardRef}
-      initial={{ opacity: 0, y: 20 }}
       animate={shouldAnimate ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 20 }}
       transition={{
         duration: 0.5,
-        delay: 0.8 + (index * 0.4), // Base delay 0.8s + 0.4s per card
+        delay: 0.8 + index * 0.4, // Base delay 0.8s + 0.4s per card
       }}
     >
-      <Card 
-        color="transparent" 
-        shadow={false}
-        placeholder={undefined}
-      >
-        <Typography
-          className="text-4xl font-bold text-primary"
-          variant="h1"
-          placeholder={undefined}
-        >
+      <Card color="transparent" shadow={false}>
+        <Typography className="text-4xl font-bold text-primary" variant="h1">
           <CountUp duration={2.5} end={numericCount} suffix={suffix} />
         </Typography>
         <hr className="mt-2 mb-4 max-w-xs" />
-        <Typography 
-          className="mt-1 font-bold" 
-          color="blue-gray" 
-          variant="h5"
-          placeholder={undefined}
-        >
+        <Typography className="mt-1 font-bold" color="blue-gray" variant="h5">
           {title}
         </Typography>
-        <Typography 
-          className="text-base max-w-xs font-normal leading-7 !text-gray-500"
-          placeholder={undefined}
-        >
+        <Typography className="text-base max-w-xs font-normal leading-7 !text-gray-500">
           {description}
         </Typography>
       </Card>
@@ -172,6 +153,7 @@ const Stats = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.4 });
   const [startTyping, setStartTyping] = useState(false);
+  const [startCardsAnimation, setStartCardsAnimation] = useState(false);
 
   useEffect(() => {
     if (isInView) {

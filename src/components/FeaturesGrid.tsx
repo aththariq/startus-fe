@@ -6,7 +6,7 @@ export default function App() {
   const ref = useRef(null);
   const titleRef = useRef(null);
   const isInView = useInView(ref, {
-    amount: 0.2, // Trigger when 20% of the element is in view
+    amount: 0.3, // Trigger when 20% of the element is in view
     once: true,  // Only trigger once
   });
   const isTitleInView = useInView(titleRef, { amount: 0.5, once: true });
