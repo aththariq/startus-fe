@@ -73,7 +73,7 @@ function HeroSection() {
             </motion.h1>
             <motion.p
               animate={{ opacity: 1, y: 0 }}
-              className="mt-4 max-w-2xl text-white sm:text-2xl/relaxed text-center mx-auto"
+              className=" max-w-2xl text-white sm:text-2xl/relaxed text-center mx-auto"
               initial={{ opacity: 0, y: 20 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
