@@ -1,7 +1,7 @@
 import { Typography, Card } from "@material-tailwind/react";
 import { motion, useInView } from "framer-motion";
 import CountUp from "react-countup";
-import React, { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect } from "react";
 
 interface StatsCardPropsType {
   count: string;
@@ -25,25 +25,40 @@ function MainStatsCard() {
       animate={isCardInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
       transition={{ duration: 0.8 }}
     >
-      <Card className="bg-gray-100/50 py-24 text-center" shadow={false}>
+      <Card
+        className="bg-gray-100/50 py-24 text-center"
+        shadow={false}
+        placeholder={undefined}
+      >
         <Typography
           className="!text-primary !leading-snug text-6xl font-extrabold"
           variant="h1"
+          placeholder={undefined}
         >
           <CountUp duration={2.5} end={393} />
         </Typography>
-        <Typography className="mt-2 font-bold" color="blue-gray" variant="h5">
+        <Typography 
+          className="mt-2 font-bold" 
+          color="blue-gray" 
+          variant="h5"
+          placeholder={undefined}
+        >
           Total Students
         </Typography>
-        <Typography className="mt-10 font-bold" color="blue-gray" variant="h4">
+        <Typography 
+          className="mt-10 font-bold" 
+          color="blue-gray" 
+          variant="h4"
+          placeholder={undefined}
+        >
           SMAN 20 Bandung
         </Typography>
         <Typography
           className="mt-1 text-base mx-auto !text-gray-500 lg:w-8/12"
           variant="lead"
+          placeholder={undefined}
         >
-          Actively participating in shaping their future careers through Start
-          Us
+          Actively participating in shaping their future careers through Start Us
         </Typography>
       </Card>
     </motion.div>
@@ -94,18 +109,31 @@ function StatsCard({ count, title, description, index, parentInView }: StatsCard
         delay: 0.8 + (index * 0.4), // Base delay 0.8s + 0.4s per card
       }}
     >
-      <Card color="transparent" shadow={false}>
+      <Card 
+        color="transparent" 
+        shadow={false}
+        placeholder={undefined}
+      >
         <Typography
           className="text-4xl font-bold text-primary"
-          variant="gradient"
+          variant="h1"
+          placeholder={undefined}
         >
           <CountUp duration={2.5} end={numericCount} suffix={suffix} />
         </Typography>
         <hr className="mt-2 mb-4 max-w-xs" />
-        <Typography className="mt-1 font-bold" color="blue-gray" variant="h5">
+        <Typography 
+          className="mt-1 font-bold" 
+          color="blue-gray" 
+          variant="h5"
+          placeholder={undefined}
+        >
           {title}
         </Typography>
-        <Typography className="text-base max-w-xs font-normal leading-7 !text-gray-500">
+        <Typography 
+          className="text-base max-w-xs font-normal leading-7 !text-gray-500"
+          placeholder={undefined}
+        >
           {description}
         </Typography>
       </Card>
@@ -144,8 +172,6 @@ const Stats = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.4 });
   const [startTyping, setStartTyping] = useState(false);
-  const [startCardsAnimation, setStartCardsAnimation] = useState(false);
-  const [leftColumnAnimated, setLeftColumnAnimated] = useState(false);
 
   useEffect(() => {
     if (isInView) {

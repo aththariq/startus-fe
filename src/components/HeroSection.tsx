@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion"; // tambahkan AnimatePresence
+import { motion } from "framer-motion";
 import { Button } from "@heroui/button";
 
 function HeroSection() {
@@ -50,9 +50,6 @@ function HeroSection() {
                   {titles.map((title, index) => (
                     <motion.span
                       key={index}
-                      className="absolute font-extrabold text-7xl text-primary"
-                      initial={{ opacity: 0, y: "-100" }}
-                      transition={{ type: "spring", stiffness: 50 }}
                       animate={
                         titleNumber === index
                           ? {
@@ -64,6 +61,9 @@ function HeroSection() {
                               opacity: 0,
                             }
                       }
+                      className="absolute font-extrabold text-7xl text-primary"
+                      initial={{ opacity: 0, y: "-100" }}
+                      transition={{ type: "spring", stiffness: 50 }}
                     >
                       {title}
                     </motion.span>
